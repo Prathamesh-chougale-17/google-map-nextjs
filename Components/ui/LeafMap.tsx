@@ -65,11 +65,6 @@ const LeafMap = () => {
             </Popup>
           </Marker>
         ))}
-        {/* <Marker position={[18.654543, 73.761443]} icon={costumIcon}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker> */}
       </MapContainer>
     </div>
   );
