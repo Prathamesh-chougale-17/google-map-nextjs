@@ -7,7 +7,25 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Hydrominex",
   description: "Made by Team Hydrominex",
-  icons: "../public/hydrominex.png",
+  icons:
+    "https://img.freepik.com/premium-vector/dump-truck-icon-isolated-white-background_103044-862.jpg?w=740",
+  metadataBase: new URL("https://google-map-nextjs.vercel.app/"),
+  openGraph: {
+    title: "Hydrominex",
+    description: "Hydrominex's personal website",
+    url: "https://google-map-nextjs.vercel.app/",
+    siteName: "Hydrominex",
+    images: [
+      {
+        url: "https://img.freepik.com/premium-vector/dump-truck-icon-isolated-white-background_103044-862.jpg?w=740",
+        width: 800,
+        height: 600,
+        alt: "Hydrominex",
+      },
+    ],
+    locale: "en_IE",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
