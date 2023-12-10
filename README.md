@@ -10,20 +10,20 @@ GeoJSON is a format for encoding a variety of geographic data structures. A GeoJ
 1. Fork this repository.
 2. Clone the repository.
 ```bash
-git clone https://www.linkedin.com/in/prathamesh-chougale
+git clone https://github.com/Prathamesh-chougale-17/google-map-nextjs.git
 ```
 3. Create a branch.
 ```bash
-git checkout -b <branch-name>
+git checkout -b main
 ```
 4. Make changes.
 5. Commit your changes.
 ```bash
-git commit -m "Message"
+git commit -m "<which feature added>"
 ```
 6. Push your local branch to the remote repository.
 ```bash
-git push -u origin <branch-name>
+git push -u origin main
 ```
 7. Create a pull request.
 8. Star this repository.
