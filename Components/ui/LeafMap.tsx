@@ -51,7 +51,11 @@ const LeafMap = () => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
         {geoLocation.map((location) => (
-          <Marker position={[location.lat, location.lng]} icon={costumIcon}>
+          <Marker
+            key={location.lat}
+            position={[location.lat, location.lng]}
+            icon={costumIcon}
+          >
             <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
