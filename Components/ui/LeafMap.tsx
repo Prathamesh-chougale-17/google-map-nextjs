@@ -32,14 +32,17 @@ const LeafMap = () => {
     {
       lat: 18.654543,
       lng: 73.761443,
+      place: "Pune",
     },
     {
       lat: 18.85639,
       lng: 73.071853,
+      place: "Mumbai",
     },
     {
       lat: 25.098533,
       lng: 75.839175,
+      place: "Kota",
     },
   ];
 
@@ -60,9 +63,7 @@ const LeafMap = () => {
             position={[location.lat, location.lng]}
             icon={costumIcon}
           >
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
+            <Popup>{location.place}</Popup>
           </Marker>
         ))}
       </MapContainer>
