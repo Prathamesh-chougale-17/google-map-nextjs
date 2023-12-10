@@ -1,8 +1,8 @@
-import Map from "@/Components/ui/Map";
+import LeafMap from "@/Components/ui/LeafMap";
 export default function Home() {
   return (
     <main>
-      <Map />
+      <LeafMap />
     </main>
   );
 }
