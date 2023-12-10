@@ -24,8 +24,8 @@ import { Icon } from "leaflet";
 
 const LeafMap = () => {
   const costumIcon = new Icon({
-    iconUrl: "/marker.png",
-    iconSize: [25, 25],
+    iconUrl: "/truck.png",
+    iconSize: [35, 35],
   });
   const geoLocation = [
     //multiple locations can be added here
@@ -35,9 +35,10 @@ const LeafMap = () => {
       place: "Pune",
     },
     {
-      lat: 18.85639,
-      lng: 73.071853,
-      place: "Mumbai",
+      lat: 22.341308073459683,
+      lng: 82.5483139849279,
+      //,
+      place: "Gevra Mines",
     },
     {
       lat: 25.098533,
