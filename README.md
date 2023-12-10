@@ -1,4 +1,4 @@
-# Hii, I'm [Prathamesh Chougale](https://www.linkedin.com/in/prathamesh-chougale/), This is Project to Learn Leaflet Map and GeoJSON. You can contributing some additional features to this project. As for now, This project consist of map of globe with some markers on it. You can click on marker to see the name of the country.
+# Hii, I'm [Prathamesh Chougale](https://www.linkedin.com/in/prathamesh-chougale/), This Project is to Learn Leaflet Map and GeoJSON. You can contributing some additional features to this project. As for now, This project consist of map of globe with some markers on it. You can click on marker to see the name of the country.
 
 ## Leaflet Map
 Leaflet is the leading open-source JavaScript library for mobile-friendly interactive maps. Weighing just about 39 KB of JS, it has all the mapping features most developers ever need.
