@@ -16,7 +16,7 @@ const FixedNavbar = () => {
               priority={false}
               src={HeroImage}
               alt="logo"
-              className="lg:h-16 h-10 w-auto dark:invert-0"
+              className="lg:h-12 h-10 w-auto dark:invert-0"
             />
           </Link>
         </div>
