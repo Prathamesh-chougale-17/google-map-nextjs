@@ -1,12 +1,12 @@
-import dynamic from "next/dynamic";
+import FixedNavbar from "@/Components/Navbar/FixedNavbar";
+import React from "react";
 
-const ExpMap = dynamic(() => import("../Components/ui/ExpMap"), {
-  ssr: false,
-});
-export default function Home() {
+const Home = () => {
   return (
-    <main>
-      <ExpMap />
-    </main>
+    <div>
+      <FixedNavbar />
+    </div>
   );
-}
+};
+
+export default Home;
