@@ -22,7 +22,11 @@ const NavbarLogin = () => {
         <div className="cursor-pointer">
           <Dropdown>
             <DropdownTrigger>
-              <Avatar src={`${session.user?.image!}`} />
+              <Avatar
+                src={session.user?.image!}
+                size="md"
+                className="cursor-pointer"
+              />
             </DropdownTrigger>
             <DropdownMenu>
               <DropdownItem>

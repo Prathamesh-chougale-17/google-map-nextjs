@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
 //revatidate the code
 
@@ -22,6 +22,7 @@ const TileLayer = dynamic(
 
 import "leaflet/dist/leaflet.css";
 import { Icon, LatLngExpression } from "leaflet";
+import { useSession } from "next-auth/react";
 
 const LeafMap = () => {
   const [position, setPosition] = React.useState<LatLngExpression>([
@@ -69,28 +70,31 @@ const LeafMap = () => {
 
   //   // Cleanup function to stop watching the position when the component unmounts
   // }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        setPosition([latitude, longitude]);
+      });
+    }, 1000);
+  });
 
-  setTimeout(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const { latitude, longitude } = position.coords;
-      setPosition([latitude, longitude]);
-    });
-  }, 1000);
   const costumIcon = new Icon({
     iconUrl: "/marker.png",
     iconSize: [25, 25],
   });
+  const { data: session } = useSession();
 
   return (
-    <div>
+    <div className="mt-[75px]">
       {/* <button onClick={handleButtonClick}>Get Geolocation</button> */}
-      <MapContainer center={position} zoom={13} style={{ height: "100vh" }}>
+      <MapContainer center={position} zoom={13} style={{ height: "90vh" }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
         <Marker position={position} icon={costumIcon}>
-          <Popup>My Location</Popup>
+          <Popup>{session?.user?.name || "Anonomous Driver"}</Popup>
         </Marker>
       </MapContainer>
     </div>
