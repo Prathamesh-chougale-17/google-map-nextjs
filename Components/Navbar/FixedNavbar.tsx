@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ThemeSwitcher from "../ThemeChanger";
-import HeroImage from "@/public/truck.png";
+import HeroImage from "@/public/android-chrome-192x192.png";
 import NavbarDropdown from "./NavbarDropdown";
 import NavbarLogin from "./NavbarLogin";
 
@@ -16,7 +16,7 @@ const FixedNavbar = () => {
               priority={false}
               src={HeroImage}
               alt="logo"
-              className="lg:h-14 h-10 w-auto dark:invert-0"
+              className="lg:h-16 h-10 w-auto dark:invert-0"
             />
           </Link>
         </div>
