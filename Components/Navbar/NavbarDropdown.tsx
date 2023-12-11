@@ -29,16 +29,10 @@ const NavbarDropdown = () => {
           <Link href="/">Home</Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href="/About">About</Link>
+          <Link href="/weather">Weather</Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href="/Projects">Project</Link>
-        </DropdownItem>
-        <DropdownItem>
-          <Link href="/AI">AI</Link>
-        </DropdownItem>
-        <DropdownItem>
-          <Link href="/Contact">Contact</Link>
+          <Link href="/maps">Maps</Link>
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>
