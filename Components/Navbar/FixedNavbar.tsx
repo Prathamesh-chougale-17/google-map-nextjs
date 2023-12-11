@@ -28,23 +28,13 @@ const FixedNavbar = () => {
               </Link>
             </li>
             <li className="body-text px-1 text-gradient_blue-purple font-bold">
-              <Link className="text-xl" href="/Projects">
-                Projects
+              <Link className="text-xl" href="/weather">
+                Weather
               </Link>
             </li>
             <li className="body-text px-1 text-gradient_blue-purple font-bold">
-              <Link className="text-xl" href="/About">
-                About
-              </Link>
-            </li>
-            <li className="body-text px-1 text-gradient_blue-purple font-bold">
-              <Link className="text-xl" href="/AI">
-                AI
-              </Link>
-            </li>
-            <li className="body-text px-1 text-gradient_blue-purple font-bold">
-              <Link className="text-xl" href="/Contact">
-                Contact
+              <Link className="text-xl" href="/maps">
+                Maps
               </Link>
             </li>
             <li>

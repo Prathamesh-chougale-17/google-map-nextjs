@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import Providers from "./Provider";
+import FixedNavbar from "@/Components/Navbar/FixedNavbar";
+import Footer from "@/Components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Hydrominex",
@@ -35,7 +37,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <FixedNavbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

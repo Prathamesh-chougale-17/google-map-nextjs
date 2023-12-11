@@ -1,12 +1,7 @@
-import FixedNavbar from "@/Components/Navbar/FixedNavbar";
 import React from "react";
 
 const Home = () => {
-  return (
-    <div>
-      <FixedNavbar />
-    </div>
-  );
+  return <div className="mt-24">Home</div>;
 };
 
 export default Home;
