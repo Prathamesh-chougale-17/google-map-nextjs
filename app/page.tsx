@@ -1,12 +1,12 @@
 import dynamic from "next/dynamic";
 
-const ExpMap = dynamic(() => import("../Components/ui/ExpMap"), {
+const LeafMap = dynamic(() => import("../Components/ui/LeafMap"), {
   ssr: false,
 });
 export default function Home() {
   return (
     <main>
-      <ExpMap />
+      <LeafMap />
     </main>
   );
 }

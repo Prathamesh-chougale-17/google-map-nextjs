@@ -73,7 +73,6 @@ const LeafMap = () => {
   setTimeout(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
-      console.log(position.coords.latitude, position.coords.longitude);
       setPosition([latitude, longitude]);
     });
   }, 1000);
