@@ -71,7 +71,7 @@ const LeafMap = () => {
   // }, []);
 
   setTimeout(() => {
-    navigator.geolocation.watchPosition((position) => {
+    navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
       console.log(position.coords.latitude, position.coords.longitude);
       setPosition([latitude, longitude]);
