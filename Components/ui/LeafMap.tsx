@@ -23,6 +23,11 @@ import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
 
 const LeafMap = () => {
+  React.useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position);
+    });
+  });
   const costumIcon = new Icon({
     iconUrl: "/truck.png",
     iconSize: [35, 35],

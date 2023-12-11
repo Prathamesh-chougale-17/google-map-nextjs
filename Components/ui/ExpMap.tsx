@@ -1,39 +1,95 @@
 "use client";
 import React from "react";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import { Icon } from "leaflet";
+import dynamic from "next/dynamic";
 
-class GenerateMap extends React.Component {
-  render() {
-    const costumIcon = new Icon({
-      iconUrl: "/marker.png",
-      iconSize: [25, 25],
-    });
+// Dynamically import the components from 'react-leaflet'
+const MapContainer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.MapContainer),
+  { ssr: false }
+);
+const Marker = dynamic(
+  () => import("react-leaflet").then((mod) => mod.Marker),
+  { ssr: false }
+);
+const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), {
+  ssr: false,
+});
+const TileLayer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.TileLayer),
+  { ssr: false }
+);
 
-    return (
-      <div>
-        {process.env.BROWSER && (
-          <MapContainer
-            style={{ height: "100vh" }}
-            center={[51.505, -0.09]}
-            zoom={13}
-          >
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            />
-            <Marker position={[51.505, -0.09]} icon={costumIcon}>
-              <Popup>
-                A pretty CSS3 popup.
-                <br />
-                Easily customizable.
-              </Popup>
-            </Marker>
-          </MapContainer>
-        )}
-      </div>
+import "leaflet/dist/leaflet.css";
+import { Icon, LatLngExpression } from "leaflet";
+
+const LeafMap = () => {
+  const [position, setPosition] = React.useState<LatLngExpression>([
+    18.654543, 73.761443,
+  ]); // Default position
+
+  // const handleButtonClick = () => {
+  //   navigator.geolocation.getCurrentPosition((position) => {
+  //     const { latitude, longitude } = position.coords;
+  //     console.log(position);
+  //     setPosition([latitude, longitude]);
+  //   });
+  // };
+  React.useEffect(() => {
+    const watchId = navigator.geolocation.watchPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        console.log(position);
+        setPosition([latitude, longitude]);
+      },
+      (error) => {
+        console.log(error);
+      },
+      {
+        maximumAge: 1000,
+        timeout: 5000,
+      }
     );
-  }
-}
+    // navigator.geolocation.getCurrentPosition(
+    //   (position) => {
+    //     const { latitude, longitude } = position.coords;
+    //     console.log(position);
+    //     setPosition([latitude, longitude]);
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   },
+    //   {
+    //     maximumAge: 1000,
+    //     timeout: 5000,
+    //   }
+    // );
 
-export default GenerateMap;
+    return () => navigator.geolocation.clearWatch(watchId);
+
+    // Cleanup function to stop watching the position when the component unmounts
+  }, []);
+
+  const costumIcon = new Icon({
+    iconUrl: "/marker.png",
+    iconSize: [25, 25],
+  });
+
+  return (
+    <div>
+      {/* <button onClick={handleButtonClick}>Get Geolocation</button> */}
+      <MapContainer center={position} zoom={13} style={{ height: "100vh" }}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
+        <Marker position={position} icon={costumIcon}>
+          <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
+        </Marker>
+      </MapContainer>
+    </div>
+  );
+};
+
+export default LeafMap;
