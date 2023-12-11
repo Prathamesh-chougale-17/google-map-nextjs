@@ -19,12 +19,7 @@ const NavbarDropdown = () => {
           <Menu className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
         </Button>
       </DropdownTrigger>
-      <DropdownMenu
-        aria-label="Single selection example"
-        variant="flat"
-        disallowEmptySelection
-        selectionMode="single"
-      >
+      <DropdownMenu>
         <DropdownItem>
           <Link href="/">Home</Link>
         </DropdownItem>
