@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import dynamic from "next/dynamic";
+//revatidate the code
 
 // Dynamically import the components from 'react-leaflet'
 const MapContainer = dynamic(
@@ -34,41 +35,48 @@ const LeafMap = () => {
   //     setPosition([latitude, longitude]);
   //   });
   // };
-  React.useEffect(() => {
-    const watchId = navigator.geolocation.watchPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords;
-        console.log(position);
-        setPosition([latitude, longitude]);
-      },
-      (error) => {
-        console.log(error);
-      },
-      {
-        maximumAge: 1000,
-        timeout: 5000,
-      }
-    );
-    // navigator.geolocation.getCurrentPosition(
-    //   (position) => {
-    //     const { latitude, longitude } = position.coords;
-    //     console.log(position);
-    //     setPosition([latitude, longitude]);
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   },
-    //   {
-    //     maximumAge: 1000,
-    //     timeout: 5000,
-    //   }
-    // );
+  // React.useEffect(() => {
+  //   const watchId = navigator.geolocation.watchPosition(
+  //     (position) => {
+  //       const { latitude, longitude } = position.coords;
+  //       console.log(position);
+  //       setPosition([latitude, longitude]);
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     },
+  //     {
+  //       maximumAge: 1000,
+  //       timeout: 5000,
+  //     }
+  //   );
+  //   // navigator.geolocation.getCurrentPosition(
+  //   //   (position) => {
+  //   //     const { latitude, longitude } = position.coords;
+  //   //     console.log(position);
+  //   //     setPosition([latitude, longitude]);
+  //   //   },
+  //   //   (error) => {
+  //   //     console.log(error);
+  //   //   },
+  //   //   {
+  //   //     maximumAge: 1000,
+  //   //     timeout: 5000,
+  //   //   }
+  //   // );
 
-    return () => navigator.geolocation.clearWatch(watchId);
+  //   return () => navigator.geolocation.clearWatch(watchId);
 
-    // Cleanup function to stop watching the position when the component unmounts
-  }, []);
+  //   // Cleanup function to stop watching the position when the component unmounts
+  // }, []);
 
+  setTimeout(() => {
+    navigator.geolocation.watchPosition((position) => {
+      const { latitude, longitude } = position.coords;
+      // console.log(position.coords.latitude, position.coords.longitude);
+      setPosition([latitude, longitude]);
+    });
+  }, 1000);
   const costumIcon = new Icon({
     iconUrl: "/marker.png",
     iconSize: [25, 25],
@@ -83,9 +91,7 @@ const LeafMap = () => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
         <Marker position={position} icon={costumIcon}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
+          <Popup>My Location</Popup>
         </Marker>
       </MapContainer>
     </div>
