@@ -22,17 +22,17 @@ const FixedNavbar = () => {
         </div>
         <div>
           <ul className="flex gap-x-3 max-md:hidden md:gap-x-3 items-center">
-            <li className="body-text px-1 text-gradient_blue-purple font-bold">
+            <li className="body-text px-1">
               <Link className="text-xl" href="/">
                 Home
               </Link>
             </li>
-            <li className="body-text px-1 text-gradient_blue-purple font-bold">
+            <li className="body-text px-1">
               <Link className="text-xl" href="/weather">
                 Weather
               </Link>
             </li>
-            <li className="body-text px-1 text-gradient_blue-purple font-bold">
+            <li className="body-text px-1">
               <Link className="text-xl" href="/maps">
                 Maps
               </Link>
